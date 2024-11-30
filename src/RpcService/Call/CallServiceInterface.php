@@ -4,7 +4,9 @@ namespace YC\RPC\RpcService\Call;
 
 interface CallServiceInterface
 {
-    public function getCallSummary($params);
+    public function getCallSummary(array $params);
 
-    public function getCallRecordList($params);
+    public function getCallRecordList(array $params);
+
+    public function getRecordDetailByUuId(string $uuid): array;
 }
