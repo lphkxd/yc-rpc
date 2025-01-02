@@ -12,8 +12,8 @@ declare(strict_types=1);
 
 namespace YC\RPC\RpcService\Call;
 
-use YC\RPC\RpcService\Call\Bean\CallRecordReqBean;
-use YC\RPC\RpcService\Call\Bean\CallRecordResBean;
+use YC\RPC\Bean\Call\CallRecordReqBean;
+use YC\RPC\Bean\Call\CallRecordResBean;
 
 interface CallServiceInterface
 {

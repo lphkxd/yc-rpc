@@ -10,7 +10,7 @@ declare(strict_types=1);
  * @license  https://github.com/hyperf/hyperf/blob/master/LICENSE
  */
 
-namespace YC\RPC\RpcService\Call\Bean;
+namespace YC\RPC\Bean\Call;
 
 use Carbon\Carbon;
 use YC\Core\Bean\SplBean;
