@@ -37,12 +37,12 @@ class CallRecordReqBean extends SplBean
     /**
      * @var string 通话唯一标识
      */
-    protected string $uuid = '';
+    protected ?string $uuid = '';
 
     /**
-     * @var string 呼叫电话号码
+     * @var ?string 呼叫电话号码
      */
-    protected string $number = '';
+    protected ?string $number = '';
 
     /**
      * @var int 呼叫状态
@@ -50,14 +50,14 @@ class CallRecordReqBean extends SplBean
     protected int $state = 0;
 
     /**
-     * @var Carbon 呼叫时间
+     * @var ?Carbon 呼叫时间
      */
-    protected Carbon $call_time;
+    protected ?Carbon $call_time;
 
     /**
-     * @var Carbon 电话接通时间
+     * @var ?Carbon 电话接通时间
      */
-    protected Carbon $answer_time;
+    protected ?Carbon $answer_time;
 
     /**
      * @var Carbon 电话挂机时间
@@ -70,36 +70,20 @@ class CallRecordReqBean extends SplBean
     protected int $bill = 0;
 
     /**
-     * @var string 整段录音文件地址
+     * @var ?string 整段录音文件地址
      */
-    protected string $record_file = '';
+    protected ?string $record_file = '';
 
     /**
-     * @var string 挂断原因
+     * @var ?string 挂断原因
      */
-    protected string $hangup_cause = '';
+    protected ?string $hangup_cause = '';
 
-    /**
-     * @var int 交互次数
-     */
-    protected int $rounds = 0;
-
-    /**
-     * @var int 1-机器人先挂机，2-对方先挂机
-     */
-    protected int $hangup_disposition = 0;
-
-    /**
-     * @var array 标签
-     */
-    protected array $tag_ids = [];
 
     public function __construct(?array $data = null, $autoCreateProperty = true)
     {
         // 设置默认时间
         $this->call_time = new Carbon();
-        $this->answer_time = new Carbon();
-        $this->hangup_time = new Carbon();
 
         parent::__construct($data, $autoCreateProperty);
     }
@@ -135,12 +119,12 @@ class CallRecordReqBean extends SplBean
     }
 
     // 只保留关键属性的getter
-    public function getUuid(): string
+    public function getUuid(): ?string
     {
         return $this->uuid;
     }
 
-    public function getNumber(): string
+    public function getNumber(): ?string
     {
         return $this->number;
     }
@@ -165,15 +149,56 @@ class CallRecordReqBean extends SplBean
         return $this->bill;
     }
 
-    public function getHangupCause(): string
+    public function getRecordFile(): ?string
     {
-        return $this->hangup_cause;
+        return $this->record_file;
     }
 
-    public function getHangupDisposition(): int
+    public function setRecordFile(?string $record_file): void
     {
-        return $this->hangup_disposition;
+        $this->record_file = $record_file;
     }
+
+    public function getCorpId(): int
+    {
+        return $this->corp_id;
+    }
+
+    public function setCorpId(int $corp_id): void
+    {
+        $this->corp_id = $corp_id;
+    }
+
+    public function setUuid(?string $uuid): void
+    {
+        $this->uuid = $uuid;
+    }
+
+    public function setNumber(?string $number): void
+    {
+        $this->number = $number;
+    }
+
+    public function getState(): int
+    {
+        return $this->state;
+    }
+
+    public function setState(int $state): void
+    {
+        $this->state = $state;
+    }
+
+    public function setAnswerTime(?Carbon $answer_time): void
+    {
+        $this->answer_time = $answer_time;
+    }
+
+    public function setHangupTime(Carbon $hangup_time): void
+    {
+        $this->hangup_time = $hangup_time;
+    }
+
 
     /**
      * 属性映射关系.
