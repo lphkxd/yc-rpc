@@ -13,7 +13,7 @@ declare(strict_types=1);
 namespace YC\RPC\Bean\Call;
 
 use Carbon\Carbon;
-use YC\Core\Bean\SplBean;
+use YC\RPC\Bean\SplBean;
 
 class CallRecordReqBean extends SplBean
 {
