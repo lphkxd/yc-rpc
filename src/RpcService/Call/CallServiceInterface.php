@@ -23,5 +23,5 @@ interface CallServiceInterface
 
     public function getRecordDetailByUuId(string $uuid): array;
 
-    public function createRecord(CallRecordReqBean $recordBean): CallRecordResBean;
+    public function createRecord(CallRecordReqBean $recordRecordBean): CallRecordResBean;
 }
