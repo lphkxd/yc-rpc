@@ -12,6 +12,9 @@ declare(strict_types=1);
 
 namespace YC\RPC\RpcService\Call;
 
+use YC\RPC\RpcService\Call\Bean\CallRecordReqBean;
+use YC\RPC\RpcService\Call\Bean\CallRecordResBean;
+
 interface CallServiceInterface
 {
     public function getCallSummary(array $params);
@@ -20,5 +23,5 @@ interface CallServiceInterface
 
     public function getRecordDetailByUuId(string $uuid): array;
 
-    public function createRecord(array $params): array;
+    public function createRecord(CallRecordReqBean $recordBean): CallRecordResBean;
 }
