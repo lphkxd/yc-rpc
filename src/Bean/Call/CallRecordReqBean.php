@@ -198,17 +198,4 @@ class CallRecordReqBean extends SplBean
     {
         $this->hangup_time = $hangup_time;
     }
-
-
-    /**
-     * 属性映射关系.
-     */
-    protected function setClassMapping(): array
-    {
-        return [
-            'call_time' => '@' . Carbon::class,
-            'answer_time' => '@' . Carbon::class,
-            'hangup_time' => '@' . Carbon::class,
-        ];
-    }
 }

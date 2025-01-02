@@ -9,19 +9,25 @@ declare(strict_types=1);
  * @contact  group@hyperf.io
  * @license  https://github.com/hyperf/hyperf/blob/master/LICENSE
  */
+
 namespace YC\RPC\Bean;
 
-class SplBean implements \JsonSerializable
+use Exception;
+use JsonSerializable;
+use ReflectionClass;
+use ReflectionException;
+
+class SplBean implements JsonSerializable
 {
     public const FILTER_NOT_NULL = 1;
 
-    public const FILTER_NOT_EMPTY = 2; //0 不算empty
+    public const FILTER_NOT_EMPTY = 2; // 0 不算empty
 
     private array $_keyMap = [];
 
     private array $_classMap = [];
 
-    public function __construct(array $data = null, $autoCreateProperty = true)
+    public function __construct(?array $data = null, $autoCreateProperty = true)
     {
         $this->_keyMap = $this->setKeyMapping();
         $this->_classMap = $this->setClassMapping();
@@ -49,7 +55,7 @@ class SplBean implements \JsonSerializable
         return array_flip($data);
     }
 
-    public function toArray(array $columns = null, $filter = null): array
+    public function toArray(?array $columns = null, $filter = null): array
     {
         $data = $this->jsonSerialize();
         if ($columns) {
@@ -75,7 +81,7 @@ class SplBean implements \JsonSerializable
     /*
      * 返回转化后的array
      */
-    public function toArrayWithMapping(array $columns = null, $filter = null)
+    public function toArrayWithMapping(?array $columns = null, $filter = null)
     {
         $array = $this->toArray();
         if (! empty($this->_keyMap)) {
@@ -181,7 +187,7 @@ class SplBean implements \JsonSerializable
     private function clear()
     {
         $keys = $this->allProperty();
-        $ref = new \ReflectionClass(static::class);
+        $ref = new ReflectionClass(static::class);
         $fields = array_keys($ref->getDefaultProperties());
         $fields = array_merge($fields, array_values($this->_keyMap));
         // 多余的key
@@ -196,6 +202,7 @@ class SplBean implements \JsonSerializable
         if (! empty($this->_classMap)) {
             $propertyList = $this->allProperty();
             foreach ($this->_classMap as $property => $class) {
+
                 if (in_array($property, $propertyList)) {
                     $val = $this->{$property};
                     $force = true;
@@ -205,7 +212,7 @@ class SplBean implements \JsonSerializable
                     }
                     if (is_object($val)) {
                         if (! $val instanceof $class) {
-                            throw new \Exception("value for property:{$property} dot not match in " . (static::class));
+                            throw new Exception("value for property:{$property} dot not match in " . (static::class));
                         }
                     } elseif ($val === null) {
                         if ($force) {
@@ -215,7 +222,7 @@ class SplBean implements \JsonSerializable
                         $this->{$property} = $this->createClass($class, $val);
                     }
                 } else {
-                    throw new \Exception("property:{$property} not exist in " . (static::class));
+                    throw new Exception("property:{$property} not exist in " . (static::class));
                 }
             }
         }
@@ -223,12 +230,12 @@ class SplBean implements \JsonSerializable
 
     /**
      * @param null $arg
-     * @throws \ReflectionException
      * @return object
+     * @throws ReflectionException
      */
     private function createClass(string $class, $arg = null)
     {
-        $ref = new \ReflectionClass($class);
+        $ref = new ReflectionClass($class);
         return $ref->newInstance($arg);
     }
 }
