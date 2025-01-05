@@ -45,6 +45,11 @@ class CallRecordReqBean extends SplBean
     protected ?string $number = '';
 
     /**
+     * @var ?string 呼叫电话号码
+     */
+    protected ?string $remark = '';
+
+    /**
      * @var int 呼叫状态
      */
     protected int $state = 0;
@@ -197,5 +202,15 @@ class CallRecordReqBean extends SplBean
     public function setHangupTime(Carbon $hangup_time): void
     {
         $this->hangup_time = $hangup_time;
+    }
+
+    public function getRemark(): ?string
+    {
+        return $this->remark;
+    }
+
+    public function setRemark(?string $remark): void
+    {
+        $this->remark = $remark;
     }
 }
