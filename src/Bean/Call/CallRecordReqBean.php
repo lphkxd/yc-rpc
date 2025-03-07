@@ -50,6 +50,11 @@ class CallRecordReqBean extends SplBean
     protected ?string $remark = '';
 
     /**
+     * @var int 呼叫类型：1-人工，2-AI
+     */
+    protected int $call_type = 1;
+
+    /**
      * @var int 呼叫状态
      */
     protected int $state = 0;
@@ -212,5 +217,10 @@ class CallRecordReqBean extends SplBean
     public function setRemark(?string $remark): void
     {
         $this->remark = $remark;
+    }
+
+    public function setCallType(int $call_type)
+    {
+        $this->call_type = $call_type;
     }
 }
