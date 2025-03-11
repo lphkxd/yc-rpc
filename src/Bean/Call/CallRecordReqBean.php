@@ -118,12 +118,12 @@ class CallRecordReqBean extends SplBean
         $this->department_id = $department_id;
     }
 
-    public function getCustomerId(): int
+    public function getCustomerId(): string
     {
         return $this->customer_id;
     }
 
-    public function setCustomerId(int $customer_id): void
+    public function setCustomerId(string $customer_id): void
     {
         $this->customer_id = $customer_id;
     }
