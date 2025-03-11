@@ -32,10 +32,10 @@ class CallRecordReqBean extends SplBean
      */
     protected int $department_id = 0;
 
-    protected int $customer_id = 0;
+    protected string $customer_id = '';
 
     /**
-     * @var string 通话唯一标识
+     * @var ?string 通话唯一标识
      */
     protected ?string $uuid = '';
 
