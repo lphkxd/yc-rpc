@@ -62,7 +62,7 @@ class CallRecordReqBean extends SplBean
     /**
      * @var ?Carbon 呼叫时间
      */
-    protected ?Carbon $call_time;
+    protected ?string $call_time;
 
     /**
      * @var ?Carbon 电话接通时间
@@ -93,7 +93,7 @@ class CallRecordReqBean extends SplBean
     public function __construct(?array $data = null, $autoCreateProperty = true)
     {
         // 设置默认时间
-        $this->call_time = new Carbon();
+        $this->call_time = (new Carbon())->format('Y-m-d H:i:s');
 
         parent::__construct($data, $autoCreateProperty);
     }
