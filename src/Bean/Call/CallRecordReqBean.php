@@ -32,7 +32,9 @@ class CallRecordReqBean extends SplBean
      */
     protected int $department_id = 0;
 
-    protected string $customer_id = '';
+    protected int $customer_id = 0;
+
+    protected int $basic_customer_id = 0;
 
     /**
      * @var ?string 通话唯一标识
@@ -118,12 +120,22 @@ class CallRecordReqBean extends SplBean
         $this->department_id = $department_id;
     }
 
-    public function getCustomerId(): string
+    public function getBasicCustomerId(): int
+    {
+        return $this->basic_customer_id;
+    }
+
+    public function setBasicCustomerId(int $basic_customer_id): void
+    {
+        $this->basic_customer_id = $basic_customer_id;
+    }
+
+    public function getCustomerId(): int
     {
         return $this->customer_id;
     }
 
-    public function setCustomerId(string $customer_id): void
+    public function setCustomerId(int $customer_id): void
     {
         $this->customer_id = $customer_id;
     }
