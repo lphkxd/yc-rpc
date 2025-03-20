@@ -91,6 +91,11 @@ class CallRecordReqBean extends SplBean
      */
     protected ?string $hangup_cause = '';
 
+    /**
+     * @var ?string 发起IP
+     */
+    protected ?string $ip = '';
+
 
     public function __construct(?array $data = null, $autoCreateProperty = true)
     {
@@ -234,5 +239,10 @@ class CallRecordReqBean extends SplBean
     public function setCallType(int $call_type)
     {
         $this->call_type = $call_type;
+    }
+
+    public function setIp(?string $ip)
+    {
+        $this->ip = $ip;
     }
 }
