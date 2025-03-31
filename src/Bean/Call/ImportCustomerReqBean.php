@@ -61,6 +61,11 @@ class ImportCustomerReqBean extends SplBean
      */
     protected int $task_id = 0;
 
+    /**
+     * @var int 任务类型
+     */
+    protected int $task_type = 1;
+
     public function __construct(?array $data = null, $autoCreateProperty = true)
     {
         parent::__construct($data, $autoCreateProperty);
@@ -149,5 +154,15 @@ class ImportCustomerReqBean extends SplBean
     public function getTaskId(): int
     {
         return $this->task_id;
+    }
+
+    public function setTaskId(int $task_id): void
+    {
+        $this->task_id = $task_id;
+    }
+
+    public function getTaskType(): int
+    {
+        return $this->task_type;
     }
 }
