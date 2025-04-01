@@ -66,6 +66,10 @@ class ImportCustomerReqBean extends SplBean
      */
     protected int $task_type = 1;
 
+    protected string $batch_name = '';
+
+    protected array $allocate_rule = [];
+
     public function __construct(?array $data = null, $autoCreateProperty = true)
     {
         parent::__construct($data, $autoCreateProperty);
@@ -164,5 +168,30 @@ class ImportCustomerReqBean extends SplBean
     public function getTaskType(): int
     {
         return $this->task_type;
+    }
+
+    public function setTaskType(int $task_type): void
+    {
+        $this->task_type = $task_type;
+    }
+
+    public function getBatchName(): string
+    {
+        return $this->batch_name;
+    }
+
+    public function setBatchName(string $batch_name): void
+    {
+        $this->batch_name = $batch_name;
+    }
+
+    public function getBatchUsers(): array
+    {
+        return $this->allocate_rule;
+    }
+
+    public function setBatchUsers(array $batch_users): void
+    {
+        $this->allocate_rule = $batch_users;
     }
 }
