@@ -37,6 +37,11 @@ class ImportCustomerReqBean extends SplBean
     protected string $file = '';
 
     /**
+     * @var string 任务名称
+     */
+    protected string $name = '';
+
+    /**
      * @var array 导入json
      */
     protected array $json = [];
@@ -113,6 +118,16 @@ class ImportCustomerReqBean extends SplBean
     public function setFile(string $file): void
     {
         $this->file = $file;
+    }
+
+    public function getName(): string
+    {
+        return $this->name;
+    }
+
+    public function setName(string $name): void
+    {
+        $this->file = $name;
     }
 
     public function getJson(): array
