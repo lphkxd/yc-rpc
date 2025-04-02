@@ -127,7 +127,7 @@ class ImportCustomerReqBean extends SplBean
 
     public function setName(string $name): void
     {
-        $this->file = $name;
+        $this->name = $name;
     }
 
     public function getJson(): array
