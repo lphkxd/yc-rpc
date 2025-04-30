@@ -40,6 +40,7 @@ class CallRecordReqBean extends SplBean
      * @var ?string 通话唯一标识
      */
     protected ?string $uuid = '';
+    protected string $lineGroupName = '';
 
     /**
      * @var ?string 呼叫电话号码
@@ -244,5 +245,15 @@ class CallRecordReqBean extends SplBean
     public function setIp(?string $ip)
     {
         $this->ip = $ip;
+    }
+
+    public function getLineGroupName(): string
+    {
+        return $this->lineGroupName;
+    }
+
+    public function setLineGroupName(string $lineGroupName): void
+    {
+        $this->lineGroupName = $lineGroupName;
     }
 }
