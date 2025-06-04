@@ -77,7 +77,6 @@ class ImportCustomerReqBean extends SplBean
     protected bool $is_duplicate_check = true;
 
     protected string $batch_name = '';
-    protected string $name = '';
 
     protected array $allocate_rule = [];
 
@@ -224,15 +223,5 @@ class ImportCustomerReqBean extends SplBean
     public function setBatchUsers(array $batch_users): void
     {
         $this->allocate_rule = $batch_users;
-    }
-
-    public function getName(): string
-    {
-        return $this->name;
-    }
-
-    public function setName(string $name): void
-    {
-        $this->name = $name;
     }
 }
