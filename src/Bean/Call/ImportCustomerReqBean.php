@@ -71,6 +71,11 @@ class ImportCustomerReqBean extends SplBean
      */
     protected int $task_type = 1;
 
+    /**
+     * @var int 是否号码重复检查
+     */
+    protected bool $is_duplicate_check = true;
+
     protected string $batch_name = '';
 
     protected array $allocate_rule = [];
@@ -188,6 +193,16 @@ class ImportCustomerReqBean extends SplBean
     public function setTaskType(int $task_type): void
     {
         $this->task_type = $task_type;
+    }
+
+    public function getIsDuplicateCheck(): bool
+    {
+        return $this->is_duplicate_check;
+    }
+
+    public function setIsDuplicateCheck(bool $is_duplicate_check): void
+    {
+        $this->is_duplicate_check = $is_duplicate_check;
     }
 
     public function getBatchName(): string
