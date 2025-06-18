@@ -72,9 +72,14 @@ class ImportCustomerReqBean extends SplBean
     protected int $task_type = 1;
 
     /**
-     * @var int 是否号码重复检查
+     * @var bool 是否号码重复检查
      */
     protected bool $is_duplicate_check = true;
+
+    /**
+     * @var bool 是否导入CRM
+     */
+    protected bool $import_crm = true;
 
     protected string $batch_name = '';
 
@@ -203,6 +208,16 @@ class ImportCustomerReqBean extends SplBean
     public function setIsDuplicateCheck(bool $is_duplicate_check): void
     {
         $this->is_duplicate_check = $is_duplicate_check;
+    }
+
+    public function getImportCrm(): bool
+    {
+        return $this->import_crm;
+    }
+
+    public function setImportCrm(bool $import_crm): void
+    {
+        $this->import_crm = $import_crm;
     }
 
     public function getBatchName(): string
