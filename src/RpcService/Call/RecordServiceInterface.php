@@ -16,6 +16,6 @@ interface RecordServiceInterface
 {
     public function list(array $params);
 
-    public function detail(int $record_id);
+    public function detail(int|string $record_id);
 
 }
