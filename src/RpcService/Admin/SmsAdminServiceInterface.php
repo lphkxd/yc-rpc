@@ -21,12 +21,12 @@ interface SmsAdminServiceInterface
     /**
      * 审核模板（通过或拒绝）
      */
-    public function auditTemplate(int $templateId, int $status, string $reason = ''): array;
+    public function auditTemplate(int $templateId, int $status, string $reason = '', ?int $auditorId = null): array;
     
     /**
      * 批量审核模板
      */
-    public function batchAuditTemplates(array $templateIds, int $status, string $reason = ''): array;
+    public function batchAuditTemplates(array $templateIds, int $status, string $reason = '', ?int $auditorId = null): array;
     
     // ==================== 签名管理 ====================
     
@@ -43,12 +43,12 @@ interface SmsAdminServiceInterface
     /**
      * 审核签名（通过或拒绝）
      */
-    public function auditSignature(int $signatureId, int $status, string $reason = ''): array;
+    public function auditSignature(int $signatureId, int $status, string $reason = '', ?int $auditorId = null): array;
     
     /**
      * 批量审核签名
      */
-    public function batchAuditSignatures(array $signatureIds, int $status, string $reason = ''): array;
+    public function batchAuditSignatures(array $signatureIds, int $status, string $reason = '', ?int $auditorId = null): array;
     
     // ==================== 任务管理 ====================
     
@@ -79,3 +79,4 @@ interface SmsAdminServiceInterface
      */
     public function getSendStatistics(array $params = []): array;
 }
+
