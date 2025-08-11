@@ -28,6 +28,16 @@ interface SmsAdminServiceInterface
      */
     public function batchAuditTemplates(array $templateIds, int $status, string $reason = '', ?int $auditorId = null): array;
     
+    /**
+     * 提交模板到通道审核
+     */
+    public function submitTemplateToProvider(int $templateId): array;
+    
+    /**
+     * 同步模板通道状态
+     */
+    public function syncTemplateStatusFromProvider(int $templateId): array;
+    
     // ==================== 签名管理 ====================
     
     /**
@@ -49,6 +59,16 @@ interface SmsAdminServiceInterface
      * 批量审核签名
      */
     public function batchAuditSignatures(array $signatureIds, int $status, string $reason = '', ?int $auditorId = null): array;
+    
+    /**
+     * 提交签名到通道审核
+     */
+    public function submitSignatureToProvider(int $signatureId): array;
+    
+    /**
+     * 同步签名通道状态
+     */
+    public function syncSignatureStatusFromProvider(): array;
     
     // ==================== 任务管理 ====================
     
