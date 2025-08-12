@@ -21,7 +21,7 @@ interface SmsAdminServiceInterface
     /**
      * 审核模板（通过或拒绝）
      */
-    public function auditTemplate(int $templateId, int $status, string $reason = '', ?int $auditorId = null): array;
+    public function auditTemplate(int $templateId, int $status, string $reason = '', ?int $auditorId = null, ?int $channelId = null): array;
     
     /**
      * 批量审核模板
@@ -53,7 +53,7 @@ interface SmsAdminServiceInterface
     /**
      * 审核签名（通过或拒绝）
      */
-    public function auditSignature(int $signatureId, int $status, string $reason = '', ?int $auditorId = null): array;
+    public function auditSignature(int $signatureId, int $status, string $reason = '', ?int $auditorId = null, ?int $channelId = null): array;
     
     /**
      * 批量审核签名
@@ -98,5 +98,12 @@ interface SmsAdminServiceInterface
      * 获取发送统计数据
      */
     public function getSendStatistics(array $params = []): array;
+
+    // ==================== 通道管理 ====================
+
+    /**
+     * 获取可用的短信通道列表
+     */
+    public function getAvailableChannels(): array;
 }
 
