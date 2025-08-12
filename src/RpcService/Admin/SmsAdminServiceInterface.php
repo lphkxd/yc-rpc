@@ -105,5 +105,17 @@ interface SmsAdminServiceInterface
      * 获取可用的短信通道列表
      */
     public function getAvailableChannels(): array;
+
+    // ==================== 重新提审 ====================
+
+    /**
+     * 重新提审模板到通道
+     */
+    public function resubmitTemplateToProvider(int $templateId): array;
+
+    /**
+     * 重新提审签名到通道
+     */
+    public function resubmitSignatureToProvider(int $signatureId): array;
 }
 
