@@ -58,11 +58,38 @@ interface LineAllocationServiceInterface
     public function infoByExternalAllocationId(int $corpId, int $externalAllocationId): array;
 
     /**
+     * 通过线路ID获取详情。
+     * @param int $corpId
+     * @param int $lineId
+     * @return array{external_allocation_id:int|null,...}
+     */
+    public function infoByLineId(int $corpId, int $lineId): array;
+
+    /**
      * 列表查询。
      * @param array $params { corp_id:int, state?:int, name?:string, server_enable_type?:int, created_at?:[string,string], page?:int, limit?:int }
      * @return array 分页数据或列表数据（由服务端按项目规范返回）
      */
     public function listByCorp(array $params = []): array;
+
+    /**
+     * 为线路充值余额。
+     * @param array $payload { corp_id:int, line_id:int, amount:float }
+     * @return array
+     */
+    public function rechargeLine(array $payload): array;
+
+    /**
+     * 在线路之间转移余额。
+     * @param array $payload { corp_id:int, from_line_id:int, to_line_id:int, amount:float }
+     * @return array{from:array,to:array}
+     */
+    public function transferLine(array $payload): array;
+
+    /**
+     * 删除线路资源（余额需为0）。
+     * @param array $payload { corp_id:int, line_id:int }
+     * @return array
+     */
+    public function deleteLine(array $payload): array;
 }
-
-
