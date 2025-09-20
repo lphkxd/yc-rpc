@@ -87,6 +87,13 @@ interface LineAllocationServiceInterface
     public function transferLine(array $payload): array;
 
     /**
+     * 更新线路资源。
+     * @param array $payload { corp_id:int, line_id:int, amount?:float, count?:int, resource_type?:int }
+     * @return array
+     */
+    public function updateLine(array $payload): array;
+
+    /**
      * 删除线路资源（余额需为0）。
      * @param array $payload { corp_id:int, line_id:int }
      * @return array
