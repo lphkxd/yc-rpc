@@ -99,4 +99,29 @@ interface LineAllocationServiceInterface
      * @return array
      */
     public function deleteLine(array $payload): array;
+
+    /**
+     * 同步已创建的分配
+     */
+    public function syncCreated($allocation): void;
+
+    /**
+     * 同步已更新的分配
+     */
+    public function syncUpdated($allocation): void;
+
+    /**
+     * 同步已撤销的分配
+     */
+    public function syncRevoked($allocation): void;
+
+    /**
+     * 同步代理分配的创建或更新
+     */
+    public function syncAgentAllocationCreatedOrUpdated($allocation): void;
+
+    /**
+     * 同步代理分配的撤销
+     */
+    public function syncAgentAllocationRevoked($allocation): void;
 }
