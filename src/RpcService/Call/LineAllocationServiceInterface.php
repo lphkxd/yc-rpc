@@ -74,7 +74,7 @@ interface LineAllocationServiceInterface
 
     /**
      * 为线路充值余额。
-     * @param array $payload { corp_id:int, line_id:int, amount:float }
+     * @param array $payload { corp_id:int, line_id:int, amount:float, agent_id?:int, payment_voucher_url?:string }
      * @return array
      */
     public function rechargeLine(array $payload): array;
