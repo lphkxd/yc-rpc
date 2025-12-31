@@ -17,7 +17,7 @@ use JsonSerializable;
 use ReflectionClass;
 use ReflectionException;
 
-#[AllowDynamicProperties]
+#[\AllowDynamicProperties]
 class SplBean implements JsonSerializable
 {
     public const FILTER_NOT_NULL = 1;
