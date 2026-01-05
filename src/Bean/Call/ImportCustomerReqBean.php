@@ -14,6 +14,7 @@ namespace YC\RPC\Bean\Call;
 
 use YC\RPC\Bean\SplBean;
 
+#[\AllowDynamicProperties]
 class ImportCustomerReqBean extends SplBean
 {
     /**
@@ -238,5 +239,25 @@ class ImportCustomerReqBean extends SplBean
     public function setBatchUsers(array $batch_users): void
     {
         $this->allocate_rule = $batch_users;
+    }
+
+    public function getOperateType(): string
+    {
+        return $this->operate_type;
+    }
+
+    public function setOperateType(string $operate_type): void
+    {
+        $this->operate_type = $operate_type;
+    }
+
+    public function getIsSea(): bool
+    {
+        return $this->is_sea;
+    }
+
+    public function setIsSea(bool $is_sea): void
+    {
+        $this->is_sea = $is_sea;
     }
 }

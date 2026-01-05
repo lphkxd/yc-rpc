@@ -15,6 +15,7 @@ namespace YC\RPC\Bean\Call;
 use Carbon\Carbon;
 use YC\RPC\Bean\SplBean;
 
+#[\AllowDynamicProperties]
 class CallRecordReqBean extends SplBean
 {
     /**
